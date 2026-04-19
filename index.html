@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Salud - Gestión Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body class="page">
+
+    <header class="page__header">
+        <div class="topbar">
+            <h1 class="topbar__logo">Salud<span>Connect</span></h1>
+            <nav class="topbar__nav">
+                <button class="btn btn--primary" id="btnNuevaCita">+ Nueva Cita</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page__main">
+
+        <!-- Stats: los <strong> tienen IDs para que JS los actualice -->
+        <section class="stats">
+            <div class="stats__item">
+                <strong id="statPendientes">0</strong> Pendientes
+            </div>
+            <div class="stats__item">
+                <strong id="statConsulta">0</strong> En Consulta
+            </div>
+            <div class="stats__item">
+                <strong id="statCompletadas">0</strong> Completadas
+            </div>
+        </section>
+
+        <!-- Tablero Kanban: los panel__content tienen IDs para que JS inserte tarjetas -->
+        <div class="board">
+
+            <section class="panel">
+                <h2 class="panel__title">Por Atender</h2>
+                <div class="panel__content" id="panelPendientes">
+                    <!-- JS inserta las tarjetas aquí -->
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel__title">En Consulta</h2>
+                <div class="panel__content" id="panelConsulta">
+                    <!-- JS inserta las tarjetas aquí -->
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel__title">Completadas</h2>
+                <div class="panel__content" id="panelCompletadas">
+                    <!-- JS inserta las tarjetas aquí -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal" id="modalCita">
+        <div class="modal__content">
+            <h2 class="modal__title">Registrar Nueva Cita</h2>
+
+            <!-- id="formCita" para que JS lo capture con getElementById -->
+            <form class="form" id="formCita">
+
+                <label class="form__label" for="inputPaciente">Paciente</label>
+                <input
+                    type="text"
+                    class="form__input"
+                    id="inputPaciente"
+                    placeholder="Nombre completo"
+                    required>
+
+                <label class="form__label" for="selectEspecialidad">Especialidad</label>
+                <select class="form__input" id="selectEspecialidad">
+                    <option>Consulta General</option>
+                    <option>Pediatría</option>
+                    <option>Cardiología</option>
+                    <option>Odontología</option>
+                    <option>Urgencias</option>
+                </select>
+
+                <label class="form__label" for="inputHora">Hora</label>
+                <input
+                    type="time"
+                    class="form__input"
+                    id="inputHora">
+
+                <!-- Checkbox de urgente -->
+                <label class="form__label form__label--check">
+                    <input type="checkbox" id="checkUrgente">
+                    Marcar como urgente
+                </label>
+
+                <div class="form__actions">
+                    <button type="button" class="btn btn--secondary" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn btn--primary">Guardar Cita</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <footer class="page__footer">
+        <p>SaludConnect 2026 - Entrega 2 - Luis Fernando Quiroga Peláez</p>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
